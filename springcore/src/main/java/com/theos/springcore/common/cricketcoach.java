@@ -1,4 +1,4 @@
-package com.theos.springcore;
+package com.theos.springcore.common;
 
 import org.springframework.stereotype.Component;
 
