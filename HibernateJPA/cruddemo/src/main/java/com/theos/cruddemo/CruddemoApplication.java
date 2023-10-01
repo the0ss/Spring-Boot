@@ -16,13 +16,27 @@ public class CruddemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CruddemoApplication.class, args);
 	}
+	
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		return runner -> {
 		//	createStudent(studentDAO);
-		//	readStudent(studentDAO);
-		queryForStudents(studentDAO);
+			readStudent(studentDAO);
+		//  queryForStudents(studentDAO);
+		//	updateStudent(studentDAO);
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		int sid=1;
+		System.out.println("Getting student with id: "+ sid);
+		Student myStudent=studentDAO.findByid(sid);
+
+		System.out.println("Updating student... ");
+		myStudent.setFirst("Scooby");
+
+		studentDAO.update(myStudent);
+		System.out.println("Updated student: "+ myStudent);
 	}
 
 	private void queryForStudents(StudentDAO studentDAO) {
@@ -49,16 +63,16 @@ public class CruddemoApplication {
 
 
 	}
-	// private void createStudent(StudentDAO studentDAO) {
+	private void createStudent(StudentDAO studentDAO) {
 
-	// 	System.out.println("Creating Student Ojject...");
-	// 	Student student=new Student("shivam", "singh", "@gmail.com");
+		System.out.println("Creating Student Ojject...");
+		Student student=new Student("shivam", "singh", "@gmail.com");
 
-	// 	System.out.println("Saving the object...");
-	// 	studentDAO.save(student);
+		System.out.println("Saving the object...");
+		studentDAO.save(student);
 
-	// 	System.out.println("Saved "+ student.getId());
+		System.out.println("Saved "+ student.getId());
 
-	// }
+	}
 
 }

@@ -1,7 +1,6 @@
 package com.theos.cruddemo.dao;
 
 import java.util.List;
-
 import com.theos.cruddemo.entity.Student;
 
 public interface StudentDAO {
@@ -11,4 +10,6 @@ public interface StudentDAO {
     Student findByid(Integer id);
 
     List<Student> findAll();
+
+    void update(Student theStudent);
 }
