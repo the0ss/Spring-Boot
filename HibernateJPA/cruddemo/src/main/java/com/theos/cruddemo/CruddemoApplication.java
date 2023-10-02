@@ -21,14 +21,21 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		return runner -> {
 		//	createStudent(studentDAO);
-			readStudent(studentDAO);
+		//	readStudent(studentDAO);
 		//  queryForStudents(studentDAO);
-		//	updateStudent(studentDAO);
+			updateStudent(studentDAO);
+		//	deleteStudent(studentDAO);
 		};
 	}
 
-	private void updateStudent(StudentDAO studentDAO) {
+	private void deleteStudent(StudentDAO studentDAO) {
 		int sid=1;
+		System.out.println("Deleting Sid: "+ sid);
+		studentDAO.delete(sid);
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		int sid=2;
 		System.out.println("Getting student with id: "+ sid);
 		Student myStudent=studentDAO.findByid(sid);
 

@@ -11,9 +11,9 @@ import jakarta.persistence.TypedQuery;
 
 @Repository
 public class StudentDAOimpl implements StudentDAO {
-
-    private EntityManager entityManager;
     @Autowired
+    private EntityManager entityManager;
+    
     public StudentDAOimpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
@@ -39,6 +39,13 @@ public class StudentDAOimpl implements StudentDAO {
     @Transactional
     public void update(Student theStudent) {
         entityManager.merge(theStudent);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Integer id) {
+        Student theStudent=entityManager.find(Student.class,id);
+        entityManager.remove(theStudent);
     }
     
 }
