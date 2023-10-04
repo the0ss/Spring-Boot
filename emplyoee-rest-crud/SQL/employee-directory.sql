@@ -1,28 +1,22 @@
-CREATE DATABASE  IF NOT EXISTS `employee_directory`;
-USE `employee_directory`;
+CREATE DATABASE  IF NOT EXISTS `appointment_directory`;
+USE `appointment_directory`;
 
---
--- Table structure for table `employee`
---
 
-DROP TABLE IF EXISTS `employee`;
+DROP TABLE IF EXISTS `appointment`;
 
-CREATE TABLE `employee` (
+CREATE TABLE `appointment` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(45) DEFAULT NULL,
-  `last_name` varchar(45) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
+  `doctor` varchar(45) DEFAULT NULL,
+  `time` time DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
---
--- Data for table `employee`
---
 
-INSERT INTO `employee` VALUES 
-	(1,'Leslie','Andrews','leslie@luv2code.com'),
-	(2,'Emma','Baumgarten','emma@luv2code.com'),
-	(3,'Avani','Gupta','avani@luv2code.com'),
-	(4,'Yuri','Petrov','yuri@luv2code.com'),
-	(5,'Juan','Vega','juan@luv2code.com');
+
+INSERT INTO `appointment` VALUES 
+	(1,'Leslie','10:43:22'),
+	(2,'Emma','11:52:00'),
+	(3,'Avani','15:45:34'),
+	(4,'Yuri','17:15:19'),
+	(5,'Juan','21:05:01');
 
