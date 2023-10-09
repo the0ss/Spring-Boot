@@ -16,8 +16,12 @@
     <p>
         Hello Person! Welcome to Theos World!
         <br>
-        <a th:href="@{/leaders}">Leadership Meeting</a>
     </p>
+    <div sec:authorize="hasRole('MANAGER')">
+        <p>
+            <a th:href="@{/leaders}">Leadership Meeting</a>
+        </p>
+    </div>
 
     <form action="#" th:action="@{/logout}" method="POST">
         <input type="submit" value="Logout"/>
